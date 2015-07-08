@@ -1,0 +1,51 @@
+grammar org.modaptix.xtext.expressions.ArithmeticExpression 
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate arithmeticExpression "http://www.modaptix.org/xtext/expressions/ArithmeticExpression"
+
+IntegerExpression:
+	IntegerAdditionSubtraction
+;
+
+IntegerAdditionSubtraction returns IntegerExpression:
+	IntegerMultiplicationDivision (({IntegerAddition.left=current} '+' | {IntegerSubtraction.left=current} '-') right=IntegerMultiplicationDivision)*
+;
+
+IntegerMultiplicationDivision returns IntegerExpression:
+	IntegerUnaryOperation (({IntegerMultiplication.left=current} ('*') | {IntegerDivision.left=current} ('/' | '÷') | {Modulo.left=current} '%') right=IntegerUnaryOperation)*
+;
+
+IntegerUnaryOperation returns IntegerExpression:
+	IntegerAtomic | (({IntegerUnaryMinusOperator} '-' | {IntegerUnaryPlusOperator} '+') Expression=IntegerAtomic)
+;
+
+IntegerAtomic returns IntegerExpression:
+	IntegerLiteralOrReference | '(' expr=IntegerExpression ')'
+;
+
+IntegerLiteralOrReference:
+	IntegerLiteral | NamedReference | PositionalReference | NamedIndexedReference
+;
+
+IntegerLiteral:
+	value=(BINARY | INT | HEX)
+;
+
+NamedReference:
+	name=ID
+;
+
+PositionalReference:
+	'[' index=IntegerExpression ']'
+;
+
+NamedIndexedReference:
+	name=ID	'[' index=IntegerExpression ']'
+;
+
+terminal ID: ('a'..'z'|'A'..'Z'|'_')('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal BINARY returns ecore::ELong: ('0' | '1')+'b';
+terminal HEX returns ecore::ELong: ('0x'|'$')('a'..'f'|'A'..'F'|'0'..'9')+;
+terminal INT returns ecore::ELong: ('1'..'9')('0'..'9')*;
+terminal FLOAT returns ecore::EDouble: ('1'..'9')('0'..'9')*'.'('0'..'9')+;

@@ -1,0 +1,7 @@
+*.xtextbin
+*.xml_gen
+*._trace
+
+/**/bin/
+
+
