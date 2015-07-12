@@ -7,7 +7,7 @@
     <package 
        uri = "http://www.modaptix.org/xtext/expressions/ArithmeticExpression" 
        class = "org.modaptix.xtext.expressions.arithmeticExpression.ArithmeticExpressionPackage"
-       genModel = "model/generated/ArithmeticExpression.genmodel" /> 
+       genModel = "model/declared/ArithmeticExpression.genmodel" /> 
 	
   </extension>
 

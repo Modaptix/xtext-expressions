@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.modaptix.xtext.expressions/emf-gen" editDirectory="/org.modaptix.xtext.expressions.edit/src"
+    editorDirectory="/org.modaptix.xtext.expressions.editor/src" modelPluginID="org.modaptix.xtext.expressions"
+    forceOverwrite="true" modelName="ArithmeticExpression" updateClasspath="false"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="6.0"
+    copyrightFields="false" editPluginID="org.modaptix.xtext.expressions.edit" editorPluginID="org.modaptix.xtext.expressions.editor"
+    runtimeVersion="2.11">
+  <genPackages prefix="ArithmeticExpression" basePackage="org.modaptix.xtext.expressions"
+      disposableProviderFactory="true" fileExtensions="arithmetic" ecorePackage="ArithmeticExpression.ecore#/">
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerExpression"/>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerAddition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerAddition/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerAddition/right"/>
+    </genClasses>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerSubtraction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerSubtraction/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerSubtraction/right"/>
+    </genClasses>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerMultiplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerMultiplication/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerMultiplication/right"/>
+    </genClasses>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerDivision">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerDivision/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerDivision/right"/>
+    </genClasses>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//Modulo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//Modulo/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//Modulo/right"/>
+    </genClasses>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerUnaryMinusOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerUnaryMinusOperator/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerUnaryPlusOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerUnaryPlusOperator/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerSubExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArithmeticExpression.ecore#//IntegerSubExpression/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="ArithmeticExpression.ecore#//IntegerLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ArithmeticExpression.ecore#//IntegerLiteral/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
