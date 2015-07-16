@@ -83,15 +83,15 @@ public class TerminalConverters extends AbstractDeclarativeValueConverterService
 		};
 	}
 	
-	private static final String[] VALID_BINARY_SUFFIXES = { "0x", "0X", "$" };
+	private static final String[] VALID_BINARY_SUFFIXES = { "b" };
 
 	private String removeValidBinarySuffix(final String string)
 	{
-		for (String prefix : VALID_BINARY_SUFFIXES)
+		for (String suffix : VALID_BINARY_SUFFIXES)
 		{
-			if (string.endsWith(prefix))
+			if (string.endsWith(suffix))
 			{
-				return string.substring(0, prefix.length());
+				return string.substring(0, string.length()-suffix.length());
 			}
 		}
 		return null;

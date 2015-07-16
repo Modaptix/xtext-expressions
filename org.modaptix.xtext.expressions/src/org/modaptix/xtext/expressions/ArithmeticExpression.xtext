@@ -4,8 +4,19 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 import "http://www.modaptix.org/xtext/expressions/ArithmeticExpression"
 
-IntegerExpression:
-	IntegerAdditionSubtraction
+IntegerExpression returns IntegerExpression:
+	IntegerBitwiseOperation
+;
+
+IntegerBitwiseOperation returns IntegerExpression:
+	IntegerArithmeticShift (({IntegerBitwiseAnd.left=current} ('&') |
+							 {IntegerBitwiseOr.left=current}  ('|') |
+							 {IntegerBitwiseXor.left=current} ('^')
+	) right=IntegerArithmeticShift)*
+;
+
+IntegerArithmeticShift returns IntegerExpression:
+	IntegerAdditionSubtraction (({IntegerShiftLeft.left=current} ('<<') | {IntegerShiftRight.left=current} ('>>')) right=IntegerAdditionSubtraction)*
 ;
 
 IntegerAdditionSubtraction returns IntegerExpression:
@@ -13,11 +24,15 @@ IntegerAdditionSubtraction returns IntegerExpression:
 ;
 
 IntegerMultiplicationDivision returns IntegerExpression:
-	IntegerUnaryOperation (({IntegerMultiplication.left=current} ('*') | {IntegerDivision.left=current} ('/' | '÷') | {Modulo.left=current} '%') right=IntegerUnaryOperation)*
+	IntegerPowerRoot (({IntegerMultiplication.left=current} ('*') | {IntegerDivision.left=current} ('/' | '÷') | {Modulo.left=current} '%') right=IntegerPowerRoot)*
+;
+
+IntegerPowerRoot returns IntegerExpression:
+	IntegerUnaryOperation (({IntegerPower.left=current} ('**')) right=IntegerUnaryOperation)*
 ;
 
 IntegerUnaryOperation returns IntegerExpression:
-	IntegerAtomic | (({IntegerUnaryMinusOperator} '-' | {IntegerUnaryPlusOperator} '+') expr=IntegerAtomic)
+	IntegerAtomic | (({IntegerUnaryMinusOperator} '-' | {IntegerUnaryPlusOperator} '+') right=IntegerAtomic)
 ;
 
 IntegerAtomic returns IntegerExpression:
@@ -25,7 +40,7 @@ IntegerAtomic returns IntegerExpression:
 ;
 
 IntegerSubExpression returns IntegerExpression:
-	'(' {IntegerSubExpression} expr=IntegerExpression ')'
+	'(' {IntegerSubExpression} right=IntegerExpression ')'
 ;
 
 IntegerLiteralOrReference returns IntegerExpression:
@@ -51,5 +66,5 @@ NamedIndexedReference:
 terminal ID: ('a'..'z'|'A'..'Z'|'_')('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 terminal BINARY returns ecore::ELong: ('0' | '1')+'b';
 terminal HEX returns ecore::ELong: ('0x'|'$')('a'..'f'|'A'..'F'|'0'..'9')+;
-terminal INT returns ecore::ELong: ('1'..'9')('0'..'9')*;
-terminal FLOAT returns ecore::EDouble: ('1'..'9')('0'..'9')*'.'('0'..'9')+;
+terminal INT returns ecore::ELong: ('0'..'9')+;
+terminal FLOAT returns ecore::EDouble: ('0'..'9')*'.'('0'..'9')+;

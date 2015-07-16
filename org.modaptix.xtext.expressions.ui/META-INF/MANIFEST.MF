@@ -19,8 +19,9 @@ Require-Bundle: org.modaptix.xtext.expressions;visibility:=reexport,
  org.eclipse.compare
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.modaptix.xtext.expressions.ui.quickfix,
+Export-Package: org.modaptix.xtext.expressions.ui,
  org.modaptix.xtext.expressions.ui.contentassist,
  org.modaptix.xtext.expressions.ui.contentassist.antlr,
- org.modaptix.xtext.expressions.ui.internal
+ org.modaptix.xtext.expressions.ui.internal,
+ org.modaptix.xtext.expressions.ui.quickfix
 Bundle-Activator: org.modaptix.xtext.expressions.ui.internal.ArithmeticExpressionActivator
