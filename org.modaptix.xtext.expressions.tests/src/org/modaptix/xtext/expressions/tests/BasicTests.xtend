@@ -130,6 +130,13 @@ class BasicTests
 	}
 
 	@Test
+	def void parseNegativeMultiple()
+	{
+		val expression = parser.parse("10*-5")
+		assertEquals(-50, expression.value)
+	}
+
+	@Test
 	def void parseBasicCompound()
 	{
 		val expression = parser.parse("1+2+3+4+5")
