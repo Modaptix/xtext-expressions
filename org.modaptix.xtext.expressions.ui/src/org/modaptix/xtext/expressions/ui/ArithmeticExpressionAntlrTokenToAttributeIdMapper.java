@@ -1,12 +1,18 @@
 package org.modaptix.xtext.expressions.ui;
 
-import org.eclipse.xtext.ui.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultAntlrTokenToAttributeIdMapper;
 
-public class ArithmeticExpressionAntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttributeIdMapper
+public class ArithmeticExpressionAntlrTokenToAttributeIdMapper extends DefaultAntlrTokenToAttributeIdMapper
 {
 	@Override
 	protected String calculateId(String tokenName, int tokenType)
 	{
+		String temp = super.calculateId(tokenName, tokenType);
+		if (temp != ArithmeticExpressionHighlightingConfiguration.DEFAULT_ID &&
+			temp != ArithmeticExpressionHighlightingConfiguration.NUMBER_ID)
+			return temp;
+
+		
 		if (tokenName.equals("RULE_INT"))
 		{
 			return ArithmeticExpressionHighlightingConfiguration.INT_ID;
