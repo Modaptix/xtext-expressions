@@ -1,259 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="arithmeticExpression"
-    nsURI="http://www.modaptix.org/xtext/expressions/ArithmeticExpression"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arithmeticExpression" nsURI="http://www.modaptix.org/xtext/expressions/ArithmeticExpression"
     nsPrefix="arithmeticExpression">
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerExpression"
-      abstract="true"
-      interface="true">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerExpression" abstract="true" interface="true">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerUnaryOperatorBase"
-      abstract="true">
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="right"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerUnaryOperatorBase" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerUnaryMinusOperator"
-      eSuperTypes="#//IntegerExpression #//IntegerUnaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return -((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerUnaryMinusOperator" eSuperTypes="#//IntegerExpression #//IntegerUnaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return -((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerUnaryPlusOperator"
-      eSuperTypes="#//IntegerExpression #//IntegerUnaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return +((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerUnaryPlusOperator" eSuperTypes="#//IntegerExpression #//IntegerUnaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return +((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerSubExpression"
-      eSuperTypes="#//IntegerExpression #//IntegerUnaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerSubExpression" eSuperTypes="#//IntegerExpression #//IntegerUnaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerBinaryOperatorBase"
-      abstract="true"
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerBinaryOperatorBase" abstract="true"
       eSuperTypes="#//IntegerUnaryOperatorBase">
-    <eStructuralFeatures
-        xsi:type="ecore:EReference"
-        name="left"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerBitwiseAnd"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() &amp; ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerBitwiseAnd" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() &amp; ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerBitwiseOr"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() | ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerBitwiseOr" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() | ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerBitwiseXor"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() ^ ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerBitwiseXor" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() ^ ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerShiftLeft"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() &lt;&lt; ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerShiftLeft" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() &lt;&lt; ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerShiftRight"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() >> ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerShiftRight" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() >> ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerAddition"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() + ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerAddition" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() + ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerSubtraction"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() - ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerSubtraction" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() - ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerMultiplication"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() * ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerMultiplication" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() * ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerDivision"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() / ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerDivision" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() / ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="Modulo"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() % ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Modulo" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue() % ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue();"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerPower"
-      eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
-    <eOperations
-        name="getValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations
-          source="http://www.eclipse.org/emf/2002/GenModel">
-        <details
-            key="body"
-            value="return (long) Math.pow(((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue(), ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue());"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerPower" eSuperTypes="#//IntegerExpression #//IntegerBinaryOperatorBase">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return (long) Math.pow(((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) left).getValue(), ((org.modaptix.xtext.expressions.arithmeticExpression.IntegerExpression) right).getValue());"/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers
-      xsi:type="ecore:EClass"
-      name="IntegerLiteral"
-      eSuperTypes="#//IntegerExpression">
-    <eStructuralFeatures
-        xsi:type="ecore:EAttribute"
-        name="value"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerLiteral" eSuperTypes="#//IntegerExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
 </ecore:EPackage>
